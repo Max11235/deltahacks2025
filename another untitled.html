@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to pHearless</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Deaf Image Section with Background Image */
+        .deaf-image-section {
+            width: 100%;
+            height: 300px; /* Height of the cropped area */
+            background-image: url('deaf.jpeg'); /* Set the image path */
+            background-size: cover; /* Ensures the image covers the entire container */
+            background-position: top; /* Focus on the top of the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+        }
+
+        /* Content Section Below the Cropped Image */
+        .content-section {
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+
+        .dots {
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: lightgray;
+        }
+
+        .dot.active {
+            background-color: blue;
+        }
+
+        .next-button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .next-button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Deaf Image Section with Cropped Image -->
+        <div class="deaf-image-section"></div>
+
+        <!-- Content Section -->
+        <div class="content-section">
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <h1>Welcome to pHearless!</h1>
+            <p>Experience the power of real-time word detection designed for the deaf and hearing impaired. Stay connected and informed effortlessly.</p>
+            <button class="next-button" onclick="navigateToPage2()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateToPage2() {
+            window.location.href = 'page2.html';
+        }
+    </script>
+</body>
+</html>

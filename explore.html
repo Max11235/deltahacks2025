@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Words</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 80px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .word-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .word-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        .word-item:last-child {
+            border-bottom: none;
+        }
+
+        .word-item:hover {
+            background-color: rgba(66, 133, 244, 0.05);
+        }
+
+        .word-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+            border-radius: 8px;
+            background-color: #e0e0e0;
+            transition: transform 0.2s ease;
+        }
+
+        .word-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .word-item span {
+            font-size: 16px;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            padding: 12px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            z-index: 1000;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-item:hover {
+            color: #4285f4;
+        }
+
+        .footer-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .footer-item.active {
+            color: #4285f4;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 16px;
+            }
+
+            .word-item {
+                padding: 12px;
+            }
+
+            .word-item img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .word-item span {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Recommended Words</div>
+        <ul class="word-list">
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Your Name</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Emergency</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Evacuate</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Hello</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Watch</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Help</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Pardon</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Excuse me</span>
+            </li>
+            <li class="word-item">
+                <img src="notepad.webp" alt="Icon">
+                <span>Hackathon</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div class="footer">
+        <a class="footer-item active">
+            <div class="footer-icon">🧭</div>
+            Explore
+        </a>
+        <a class="footer-item" onclick="redirectToMyWords()">
+            <div class="footer-icon">🎤</div>
+            Listen
+        </a>
+        <a class="footer-item" onclick="redirectToProfile()">
+            <div class="footer-icon">👤</div>
+            Profile
+        </a>
+    </div>
+
+    <script>
+        function redirectToExplore() {
+            window.location.href = 'explore.html';
+        }
+
+        function redirectToMyWords() {
+            window.location.href = 'listeningspot.html';
+        }
+
+        function redirectToProfile() {
+            window.location.href = 'profile.html';
+        }
+    </script>
+</body>
+</html>

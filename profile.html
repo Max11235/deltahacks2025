@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            transition: background-color 0.5s ease;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 80px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #4285f4;
+            margin-bottom: 12px;
+        }
+
+        .profile-header .name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333333;
+            margin: 8px 0 4px;
+        }
+
+        .profile-header .username {
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .menu-item {
+            margin: 8px 0;
+            padding: 12px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(66, 133, 244, 0.1);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            padding: 12px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            z-index: 1000;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-item:hover {
+            color: #4285f4;
+        }
+
+        .footer-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .footer-item.active {
+            color: #4285f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Profile</div>
+        
+        <div class="profile-section">
+            <div class="profile-header">
+                <img src="/api/placeholder/100/100" alt="Profile Picture">
+                <div class="name">John Doe</div>
+                <div class="username">@jdoey25</div>
+            </div>
+            
+            <ul class="menu">
+                <li class="menu-item">My Profile <span>➜</span></li>
+                <li class="menu-item">Devices <span>➜</span></li>
+                <li class="menu-item">Notifications <span>➜</span></li>
+                <li class="menu-item">Privacy & Security <span>➜</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div class="footer">
+        <a class="footer-item" onclick="redirectToExplore()">
+            <div class="footer-icon">🧭</div>
+            Explore
+        </a>
+        <a class="footer-item" onclick="redirectToListen()">
+            <div class="footer-icon">🎤</div>
+            Listen
+        </a>
+        <a class="footer-item active">
+            <div class="footer-icon">👤</div>
+            Profile
+        </a>
+    </div>
+
+    <script>
+        function redirectToExplore() {
+            window.location.href = 'explore.html';
+        }
+
+        function redirectToListen() {
+            window.location.href = 'listeningspot.html';
+        }
+    </script>
+</body>
+</html>

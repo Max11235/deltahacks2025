@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: #ffffff;
+            padding: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .home-button {
+            display: block;
+            text-align: center;
+            margin-bottom: 16px;
+            padding: 10px 16px;
+            background-color: #4285f4;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #357ae8;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: #f5f7fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            color: #666666;
+            margin-left: 8px;
+        }
+
+        .recent-searches {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666666;
+            margin-bottom: 16px;
+        }
+
+        .search-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .search-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-item .delete {
+            font-size: 14px;
+            color: #999999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-item .delete:hover {
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="wordbank.html" class="home-button">Home</a>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for a word...">
+            <button id="add-word">Add</button>
+        </div>
+        <div class="recent-searches">RECENT SEARCHES</div>
+        <div id="search-list"></div>
+    </div>
+
+    <script>
+        // Get references to elements
+        const searchInput = document.getElementById('search-input');
+        const addWordButton = document.getElementById('add-word');
+        const searchList = document.getElementById('search-list');
+
+        // Load words from local storage
+        const loadWords = () => {
+            const words = JSON.parse(localStorage.getItem('searchWords')) || [];
+            renderWords(words);
+        };
+
+        // Save a new word to local storage
+        const saveWord = (word) => {
+            const words = JSON.parse(localStorage.getItem('searchWords')) || [];
+            if (!words.includes(word)) {
+                words.push(word);
+                localStorage.setItem('searchWords', JSON.stringify(words));
+                renderWords(words);
+            }
+        };
+
+        // Delete a word from local storage
+        const deleteWord = (word) => {
+            let words = JSON.parse(localStorage.getItem('searchWords')) || [];
+            words = words.filter(item => item !== word);
+            localStorage.setItem('searchWords', JSON.stringify(words));
+            renderWords(words);
+        };
+
+        // Render the list of words
+        const renderWords = (words) => {
+            searchList.innerHTML = '';
+            words.forEach(word => {
+                const div = document.createElement('div');
+                div.classList.add('search-item');
+                div.innerHTML = `
+                    ${word}
+                    <span class="delete" onclick="deleteWord('${word}')">✖</span>
+                `;
+                searchList.appendChild(div);
+            });
+        };
+
+        // Event listener for adding a new word
+        addWordButton.addEventListener('click', () => {
+            const word = searchInput.value.trim();
+            if (word) {
+                saveWord(word);
+                searchInput.value = '';
+            }
+        });
+
+        // Initialize the app
+        loadWords();
+
+        // Expose deleteWord globally to use in inline event
+        window.deleteWord = deleteWord;
+    </script>
+</body>
+</html>
